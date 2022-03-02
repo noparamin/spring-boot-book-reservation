@@ -1,6 +1,7 @@
 package com.example.springbootcrud.repository;
 
 import com.example.springbootcrud.model.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 

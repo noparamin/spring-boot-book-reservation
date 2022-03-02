@@ -3,7 +3,6 @@ package com.example.springbootcrud.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "member")
 public class Member {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,9 +19,9 @@ public class Member {
     private String lastName;
 
     @Enumerated(EnumType.STRING)
-    private MemberStatus memberStatus;
+    private MemberStatus status;
 
     @JsonBackReference
-    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "member",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Lend> lends;
 }
